@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 200 13% 46%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 13% 46%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 13% 46%;
+
+    --primary-foreground: 0 0% 100%;
+
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent-foreground: 210 11% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-bodytext;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-montserrat font-bold text-heading;
+  }
+  p,
+  span,
+  a,
+  li {
+    @apply font-opensans text-bodytext;
+  }
+}
+
+.container {
+  @apply px-4 md:px-6 max-w-7xl mx-auto;
+}
+
+.gradient-bg {
+  @apply bg-gradient-primary;
+}
+
+/* Improved contrast text classes for dark backgrounds */
+.text-on-dark {
+  @apply text-white;
+}
+
+.text-on-dark-secondary {
+  @apply text-white/90;
+}
+
+/* Button styles */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md font-semibold transition-colors 
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 
+  disabled:opacity-50 disabled:pointer-events-none shadow-md;
+}
+
+.btn-primary {
+  @apply bg-secondary text-white hover:bg-secondary/90 shadow-md border-2 border-secondary;
+}
+
+.btn-outline {
+  @apply border-2 border-secondary text-secondary hover:bg-secondary/10;
+}
+
+.btn-accent {
+  @apply bg-accent text-heading hover:bg-accent/90 shadow-md border-2 border-accent;
+}
+
+.btn-white {
+  @apply bg-white text-primary hover:bg-gray-100 shadow-md border-2 border-white;
+}
+
+.btn-ghost {
+  @apply text-bodytext hover:bg-gray-100 hover:text-secondary;
+}
+
+/* Add a new class for buttons on dark backgrounds */
+.btn-on-dark {
+  @apply bg-white text-primary hover:bg-gray-100 shadow-md border-2 border-white font-semibold;
+}
+
+/* Add a new class for buttons on blue backgrounds */
+.btn-on-blue {
+  @apply bg-accent text-heading hover:bg-accent/90 shadow-md border-2 border-accent font-semibold;
+}
+
+/* Equal height card utilities */
+.card-grid {
+  @apply grid gap-8;
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.card {
+  @apply flex flex-col h-full;
+  height: 100%;
+}
+
+.card-body {
+  @apply flex-grow;
+  flex: 1 1 auto;
+}
+
+.card-footer {
+  @apply mt-auto pt-4;
+}
+
+/* Safari fix for equal height grid items */
+@supports (-webkit-appearance: none) {
+  .card-grid {
+    display: grid;
+    grid-auto-rows: 1fr;
+  }
+
+  .card-grid > * {
+    height: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInFromRight 0.6s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.5s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+
