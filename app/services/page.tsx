@@ -173,6 +173,7 @@ export default function ServicesPage() {
                   <li>• Profitability assessment</li>
                   <li>• Business performance review</li>
                   <li>• Strategic financial planning</li>
+                  <li>• Business Financial Coaching</li>
                 </ul>
               </div>
             </div>
